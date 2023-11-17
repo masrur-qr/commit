@@ -40,11 +40,10 @@ def job():
     create_commit_and_push()
     print("hello")
 
-job()
-# # Schedule the job to run every hour
-# schedule.every().minute.do(job)
+# Schedule the job to run every hour
+schedule.every().minute.do(job)
 
-# # Run the scheduler
-# while True:
-#     schedule.run_pending()
-#     time.sleep(1)
+# Run the scheduler
+while True:
+    schedule.run_pending()
+    time.sleep(1)
