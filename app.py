@@ -35,12 +35,12 @@ def create_commit_and_push():
     # Push to the repository
     os.system("git push origin main")
 
-# def job():
-#     print("Creating commit and pushing to GitHub...")
-create_commit_and_push()
-print("hello")
+def job():
+    print("Creating commit and pushing to GitHub...")
+    create_commit_and_push()
+    print("hello")
 
-
+job()
 # # Schedule the job to run every hour
 # schedule.every().minute.do(job)
 
