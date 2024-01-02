@@ -6,4 +6,4 @@ RUN go mod download
 COPY . /perent/
 EXPOSE 2121
 RUN go build -o main ./
-CMD [ "/main" ]
+CMD [ "./main" ]
