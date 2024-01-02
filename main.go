@@ -6,8 +6,6 @@ import (
 	"os/exec"
 	"time"
 
-	"github.com/google/go-github/github"
-	"golang.org/x/oauth2"
 )
 
 // GitHub credentials
@@ -72,7 +70,7 @@ func job() {
 
 func main() {
 	// Schedule the job to run every hour
-	ticker := time.NewTicker(time.Minute)
+	ticker := time.NewTicker(time.Second)
 	defer ticker.Stop()
 
 	for {
