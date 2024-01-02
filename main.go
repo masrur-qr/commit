@@ -11,7 +11,7 @@ import (
 const (
 	username     = "masrur-qr"
 	repoName     = "commit"
-	accessToken  = "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"
+	accessToken  = "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"
 	repoDirectory = "./"
 )
 
@@ -71,7 +71,7 @@ func job() {
 
 func main() {
 	// Schedule the job to run every hour
-	ticker := time.NewTicker(time.Second)
+	ticker := time.NewTicker(time.Minute)
 	defer ticker.Stop()
 
 	for {
