@@ -6,13 +6,15 @@ import (
 	"os/exec"
 	"time"
 
+	"github.com/google/go-github/github"
+	"golang.org/x/oauth2"
 )
 
 // GitHub credentials
 const (
 	username     = "masrur-qr"
 	repoName     = "commit"
-	accessToken  = "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"
+	accessToken  = "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"
 	repoDirectory = "./"
 )
 
@@ -54,7 +56,7 @@ func createCommitAndPush() {
 	}
 
 	// Push to the repository
-	cmd = exec.Command("git", "push", "origin", "golang")
+	cmd = exec.Command("git", "push", "origin", "main")
 	err = cmd.Run()
 	if err != nil {
 		fmt.Println("Error pushing changes:", err)
@@ -70,7 +72,7 @@ func job() {
 
 func main() {
 	// Schedule the job to run every hour
-	ticker := time.NewTicker(time.Second)
+	ticker := time.NewTicker(time.Minute)
 	defer ticker.Stop()
 
 	for {
