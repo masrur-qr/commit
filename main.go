@@ -48,23 +48,23 @@ func createCommitAndPush(client *github.Client) {
 		log.Fatal("Error committing changes:", err)
 	}
 
-	// Push to the repository
-	cmd = exec.Command("git", "push", "origin", "golang")
-	err = cmd.Run()
-	if err != nil {
-		log.Fatal("Error pushing changes:", err)
-	}
-
+	
 	// Now create a commit using the GitHub API
 	commitMessage := fmt.Sprintf("Auto commit at: %s", time.Now().Format("2006-01-02 15:04:05"))
 	opts := &github.RepositoryContentFileOptions{
 		Content: []byte(commitMessage),
 		Message: github.String(commitMessage),
 	}
-
+	
 	_, _, err = client.Repositories.CreateFile(context.Background(), username, repoName, "sample_file.txt", opts)
 	if err != nil {
 		log.Fatal("Error creating commit via GitHub API:", err)
+	}
+	// Push to the repository
+	cmd = exec.Command("git", "push", "origin", "golang")
+	err = cmd.Run()
+	if err != nil {
+		log.Fatal("Error pushing changes:", err)
 	}
 }
 
