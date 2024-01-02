@@ -6,15 +6,13 @@ import (
 	"os/exec"
 	"time"
 
-	// "github.com/google/go-github/github"
-	// "golang.org/x/oauth2"
 )
 
 // GitHub credentials
 const (
 	username     = "masrur-qr"
 	repoName     = "commit"
-	accessToken  = "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"
+	accessToken  = "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"
 	repoDirectory = "./"
 )
 
@@ -72,7 +70,7 @@ func job() {
 
 func main() {
 	// Schedule the job to run every hour
-	ticker := time.NewTicker(time.Minute)
+	ticker := time.NewTicker(time.Second)
 	defer ticker.Stop()
 
 	for {
