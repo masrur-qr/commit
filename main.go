@@ -54,6 +54,7 @@ func createCommitAndPush() {
 	}
 
 	// Push to the repository
+	fmt.Println("git", "push", apiURL , "golang")
 	cmd = exec.Command("git", "push", apiURL , "golang")
 	err = cmd.Run()
 	if err != nil {
