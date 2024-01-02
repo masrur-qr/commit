@@ -5,14 +5,13 @@ import (
 	"os"
 	"os/exec"
 	"time"
-
 )
 
 // GitHub credentials
 const (
-	username     = "masrur-qr"
-	repoName     = "commit"
-	accessToken  = "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"
+	username      = "masrur-qr"
+	repoName      = "commit"
+	accessToken   = "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"
 	repoDirectory = "./"
 )
 
@@ -46,6 +45,23 @@ func createCommitAndPush() {
 		return
 	}
 
+
+	// git config --global user.email "you@example.com"
+	cmd = exec.Command("git", "config", "--global", "user.email",`"you@example.com"`)
+	err = cmd.Run()
+	if err != nil {
+		fmt.Println("Error committing changes:", err)
+		return
+	}
+
+	//  git config --global user.name "Your Name"
+	cmd = exec.Command("git", "config", "--global", "user.name",`"masrur"`)
+	err = cmd.Run()
+	if err != nil {
+		fmt.Println("Error committing changes:", err)
+		return
+	}
+
 	cmd = exec.Command("git", "commit", "-m", fmt.Sprintf("Auto commit at: %s", time.Now().Format("2006-01-02 15:04:05")))
 	err = cmd.Run()
 	if err != nil {
@@ -72,7 +88,6 @@ func main() {
 	// Schedule the job to run every hour
 	ticker := time.NewTicker(time.Second)
 	defer ticker.Stop()
-
 
 	for {
 		select {
