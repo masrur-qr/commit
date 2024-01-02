@@ -11,7 +11,7 @@ import (
 const (
 	username     = "masrur-qr"
 	repoName     = "commit"
-	accessToken  = "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"
+	accessToken  = "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"
 	repoDirectory = "./"
 )
 
