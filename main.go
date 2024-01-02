@@ -54,7 +54,7 @@ func createCommitAndPush() {
 	}
 
 	// Push to the repository
-	cmd = exec.Command("git", "push", "origin", "main")
+	cmd = exec.Command("git", "push", "origin", "golang")
 	err = cmd.Run()
 	if err != nil {
 		fmt.Println("Error pushing changes:", err)
@@ -72,6 +72,7 @@ func main() {
 	// Schedule the job to run every hour
 	ticker := time.NewTicker(time.Second)
 	defer ticker.Stop()
+
 
 	for {
 		select {
